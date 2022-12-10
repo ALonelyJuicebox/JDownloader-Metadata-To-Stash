@@ -8,14 +8,13 @@ This is a *great* tool if you need to get URLs for your downloads into another p
 The information in the CSV file includes the **Filename**, the **Filesize (in bytes)** and the **URL** used to download the file
  
 ## Setup
-- Install JDownloader2
-- Install the **Event Scripter** plugin for JDownloader2 by going to JDownloader's Settings menu
 - Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
-- Going back to JDownloader's Settings menu, click on **Event Scripter**, then click on the **"+ Add"** button at the bottom of the screen
+- With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin
+- Click on the newly installed **Event Scripter** plugin in the settings menu, and then click on the **"+ Add"** button at the bottom of the screen
 - Name the script **"Write download information to a CSV"**
 - Set the Trigger to **"Package finished"**
 - Click on the **Edit** button to the right of the newly named empty script
-- In the window that appears, paste the contents of the script and save the file
+- In the window that appears, **paste** the contents of the script and save the file
 - Done!
  
 ## Additional Details 
