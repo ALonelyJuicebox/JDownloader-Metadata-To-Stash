@@ -1,14 +1,14 @@
-# JD2_WriteInfoCSV
-Based on the JDownloader2 writeInfoFile script, this script outputs file information about a download into a CSV file stored in the same path as the downloaded file. 
+# Export Download Info to CSV file (JDownloader2 Event Script)
+Based on the JDownloader2 `writeInfoFile` script, this script (`JD2_WriteInfoCSV.js`) exports file information about a download into a CSV file stored in the same path as the downloaded file. 
 
 This is a great tool if you need to get URLs for your downloads into another platform and are saavy enough to scrape the CSV files in order to pull that data.
  
 The information in the CSV file includes the **Filename**, the **Filesize (in bytes)** and the **URL** used to download the file
  
-## Setup Instructions:
+## Setup
 - Install JDownloader2
 - Install the **Event Scripter** plugin for JDownloader2 by going to JDownloader's Settings menu
-- Open JD2_WriteInfoCSV.js (the script included in this repository) in the text editor of your choice and copy everything to your clipboard
+- Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
 - Going back to JDownloader's Settings menu, click on **Event Scripter**, then click on the **"+ Add"** button at the bottom of the screen
 - Name the script **"Write download information to a CSV"**
 - Set the Trigger to **"Package finished"**
