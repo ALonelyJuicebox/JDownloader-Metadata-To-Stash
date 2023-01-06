@@ -19,7 +19,7 @@ The information in the CSV file includes the **Filename**, the **Filesize (in by
 - Done!
  
 ## Additional Details 
-- In a normal instance where there's just one file in the package, this will generate a single line CSV with the filename, filesize (in bytes) and URL.
-- In a circumstance where a JD2 package has multiple files, this will give you a multi line CSV where each line will have a filename, filesize (in bytes) and the respective URL.
+- In a normal instance where there's just one file in the package, this will generate a single line CSV with the `filename`, `filesize (in bytes)` and `URL`.
+- In a circumstance where a JD2 package has multiple files, this will give you a multi line CSV where each line will have a `filename`, `filesize (in bytes)` and the respective `URL`.
 - In the event that the URL is undeterminable, the URL field in the CSV will be defined as 'undefinedURL'
 
