@@ -16,7 +16,6 @@ REQUIREMENTS
     Powershell Core
  #>
 
-
 Import-Module PSGraphQL
 
 clear-host
@@ -81,8 +80,8 @@ foreach ($currentcsvfile in $allcsvfiles){
         $currenturlfromcsv = $csv_row.url
 
         #If the CSV we're looking at isn't a valid CSV for importing metadata into Stash, let's skip it and more on.
-        if($currentfilesize -ne [int]){
-            write-host "INFO: The following CSV file does not appear to be a valid JD2 metadata file and has been skipped:" -ForegroundColor Yellow
+        if($currentfilesize -notmatch '^\d+$'){
+            write-host "`nINFO: The following CSV file does not appear to be a valid JD2 metadata file and has been skipped:" -ForegroundColor Yellow
             write-host $currentcsvfile.FullName -ForegroundColor Yellow
             break
         }
@@ -180,21 +179,11 @@ foreach ($currentcsvfile in $allcsvfiles){
             
 write-host "`n-- Results --"
 if($successcounter -gt 0){
-    write-host "+ $successcounter scenes had an URL added to Stash" -ForegroundColor Cyan
-}
-if($missingcounter -gt 0){
-    write-host "- $missingcounter scenes couldn't be found in Stash."
+    write-host "$successcounter scenes had an URL added to Stash" -ForegroundColor Cyan
 }
 if($skipcounter -gt 0){
-    write-host "- $skipcounter scenes already had a matching URL"
+    write-host "$skipcounter scenes already had a matching URL" -ForegroundColor yellow
 }
-
-
-
-
-
-
-
-
-
-        
+if($missingcounter -gt 0){
+    write-host "$missingcounter scenes couldn't be found in Stash." 
+}
