@@ -17,7 +17,7 @@ The Powershell script iterates through whatever folder you provide it, and uploa
 
 This part teaches JDownloader how to generate sidecar files for your downloads. <br /> There are a few steps here, but don't worry-- you only need to do this once!
 
-1. Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
+1. Open [JD2_WriteMetadataToCSV.js](https://github.com/ALonelyJuicebox/JDownloader-Metadata-To-Stash/blob/JD2_WriteMetadataToCSV.js) and copy everything to your clipboard
 2. With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin (if it is not already installed.)
 3. Click on the newly installed **Event Scripter** plugin in the Settings menu, and then click on the **"+ Add"** button at the bottom of the screen
 4. Name the script **"Write download information to a CSV"**
