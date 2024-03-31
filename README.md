@@ -7,17 +7,10 @@
 * Great way to get URLs from your downloads into your Stash for further metadata scraping!
 * Simple to setup and use!
 
-## 💻 Requirements
-- Microsoft Windows, macOS, or your favourite distro of Linux
-- Stash ([Latest Version](https://github.com/stashapp/stash/releases/))
-- JDownloader ([Latest Version](https://jdownloader.org/))
-- Microsoft Powershell (available on all major operating systems) ([Latest Version](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
-
-
 ## 🍦 How it Works
-The **JDownloader2 script** auto-triggers when files are downloaded and it saves a sidecar `.csv` file by the downloaded file containing `filename`, `filesize` and `URL` metadata.
+As files are downloaded, the JDownloader script saves a sidecar `.csv` file by the downloaded file containing `filename`, `filesize` and `URL` metadata.
 
-The **JD2_CSV_To_Stash.ps1** Powershell script iterates through a defined folder and parses sidecar `.csv` files against your Stash.<br /> It'll add missing URLs to scenes that need it.
+The Powershell script iterates through whatever folder you provide it, and uploads metadata from the sidecar `.csv` files into your Stash for matching files.
 
 ## 📖 Adding the JDownloader2 event script
 <img src="/readme_assets/JDownloader.png" width="50%" height="50%" >
@@ -44,3 +37,9 @@ You'll want to run this whenever you have new sidecar files to add to Stash.
 3. Select the folder you'd like to parse sidecar files from
 4. Press `Enter` when prompted to start the import
 5. Done!
+
+## 💻 Requirements
+- Microsoft Windows, macOS, or your favourite distro of Linux
+- Stash ([Latest Version](https://github.com/stashapp/stash/releases/))
+- JDownloader ([Latest Version](https://jdownloader.org/))
+- Microsoft Powershell (available on all major operating systems) ([Latest Version](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
