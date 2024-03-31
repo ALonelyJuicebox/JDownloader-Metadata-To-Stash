@@ -12,12 +12,12 @@ As files are downloaded, the JDownloader script saves a sidecar `.csv` file by t
 
 The Powershell script iterates through whatever folder you provide it, and uploads metadata from the sidecar `.csv` files into your Stash for matching files.
 
-## 📖 Adding the JDownloader2 event script
+## 📖 Setup - Adding the JDownloader2 event script
 <img src="/readme_assets/JDownloader.png" width="50%" height="50%" >
 
 This part teaches JDownloader how to generate sidecar files for your downloads. <br /> There are a few steps here, but don't worry-- you only need to do this once!
 
-1. Open [JD2_WriteMetadataToCSV.js](https://github.com/ALonelyJuicebox/JDownloader-Metadata-To-Stash/blob/JD2_WriteMetadataToCSV.js) and copy everything to your clipboard
+1. Open `JD2_WriteMetadataToCSV.js` and copy everything to your clipboard
 2. With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin (if it is not already installed.)
 3. Click on the newly installed **Event Scripter** plugin in the Settings menu, and then click on the **"+ Add"** button at the bottom of the screen
 4. Name the script **"Write download information to a CSV"**
@@ -26,9 +26,9 @@ This part teaches JDownloader how to generate sidecar files for your downloads. 
 7. In the window that appears, **paste** the contents of the script and save the file
 8. Done!
 
-## 📖 Importing URL metadata into Stash
-
+## 📖 Setup - Importing URL metadata into Stash
 <img src="/readme_assets/import_jd2_csv_to_stash.png" >
+
 This part imports the URL metadata found in your sidecar metadata files into Stash. <br />
 You'll want to run this whenever you have new sidecar files to add to Stash.
 
