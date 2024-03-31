@@ -1,11 +1,11 @@
 <h1 align="center">JDownloader Metadata To Stash</h1>
 <p align="center"><img src="/readme_assets/header.png" ></p>
 
-**JDownloader Metadata To Stash** facilitates easy import of URL metadata from JDownloader right into to your Stash.
+**JDownloader Metadata To Stash** facilitates easy import of (URL) metadata from JDownloader right into to your Stash.
 
+* Simple to setup and use!
 * Works on all major operating systems!
 * Great way to get URLs from your downloads into your Stash for further metadata scraping!
-* Simple to setup and use!
 
 ## 🍦 How it Works
 As files are downloaded, the JDownloader script saves a sidecar `.csv` file by the downloaded file containing `filename`, `filesize` and `URL` metadata.
