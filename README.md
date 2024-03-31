@@ -34,7 +34,7 @@ This part teaches JDownloader how to generate sidecar files for your downloads. 
 
 ## 📖 Importing URL metadata into Stash
 
-<img src="/readme_assets/Import_JD2_CSV_To_Stash.png" >
+<img src="/readme_assets/import_jd2_csv_to_stash.png" >
 This part imports the URL metadata found in your sidecar metadata files into Stash.
 You'll want to run this whenever you have new sidecar files to add to Stash.
 
