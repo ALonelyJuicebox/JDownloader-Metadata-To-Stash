@@ -23,19 +23,19 @@
 
 This part teaches JDownloader how to generate sidecar files for your downloads. <br /> There are a few steps here, but don't worry-- you only need to do this once!
 
-- Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
-- With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin (if it is not already installed.)
-- Click on the newly installed **Event Scripter** plugin in the Settings menu, and then click on the **"+ Add"** button at the bottom of the screen
-- Name the script **"Write download information to a CSV"**
-- Set the Trigger to **"Package finished"**
-- Click on the **Edit** button to the right of the newly named empty script
-- In the window that appears, **paste** the contents of the script and save the file
-- Done!
+1. Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
+2. With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin (if it is not already installed.)
+3. Click on the newly installed **Event Scripter** plugin in the Settings menu, and then click on the **"+ Add"** button at the bottom of the screen
+4. Name the script **"Write download information to a CSV"**
+5. Set the Trigger to **"Package finished"**
+6. Click on the **Edit** button to the right of the newly named empty script
+7. In the window that appears, **paste** the contents of the script and save the file
+8. Done!
 
 ## 📖 Importing URL metadata into Stash
 
 <img src="/readme_assets/import_jd2_csv_to_stash.png" >
-This part imports the URL metadata found in your sidecar metadata files into Stash.
+This part imports the URL metadata found in your sidecar metadata files into Stash. <br />
 You'll want to run this whenever you have new sidecar files to add to Stash.
 
 1. Download `Import_JD2_CSV_To_Stash.ps1` to your filesystem
