@@ -1,25 +1,46 @@
-# Download Info to CSV file (JD2 Event Script)
-![Image of JDownloader2](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JDownloader.png)
-Based on the JDownloader2 `writeInfoFile` script, this script (`JD2_WriteInfoCSV.js`) exports file information about a given download into a CSV file stored in the same path as the downloaded file. 
+<h1 align="center">JDownloader Metadata To Stash</h1>
+<p align="center"><img src="/readme_assets/header.png" ></p>
 
-This triggers on each newly completed download, creating a bespoke CSV file for each file.
+**JDownloader Metadata To Stash** is a process comprised of two parts, an event script for JD2 that creates sidecar files and a Powershell script that imports those sidecar files into Stash itself.
 
-This is a *great* tool if you need to get URLs for your downloads into another platform and are saavy enough to scrape the CSV files in order to pull that data.
- 
-The information in the CSV file includes the **Filename**, the **Filesize (in bytes)** and the **URL** used to download the file
- 
-## Setup
+* Works on all major operating systems!
+* Great way to get URLs from your downloads into your Stash for further metadata scraping!
+* Simple to setup and use!
+
+## 💻 Requirements
+- Microsoft Windows, macOS, or your favourite distro of Linux
+- Stash ([Latest Version](https://github.com/stashapp/stash/releases/))
+- JDownloader ([Latest Version](https://jdownloader.org/))
+- Microsoft Powershell (available on all major operating systems) ([Latest Version](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell))
+
+
+## 🍦 How it Works
+-  The JDownloader2 script auto-triggers when files are downloaded and it saves a sidecar `.CSV` file by the downloaded file containing `filename`, `filesize` and `URL` metadata
+-  Triggered by the user, the `JD2_CSV_To_Stash.ps1` Powershell script iterates through a defined folder and parses sidecar `.CSV` files against your Stash. It'll add missing URLs to scenes that need it.
+
+## 📖 How to Run
+
+**Adding the JDownloader2 event script**
+<img src="/readme_assets/jdownloader.png" >
+This part teaches JDownloader how to generate sidecar files for your downloads.
+There are a few steps here, but don't worry-- you only need to do this once!
+
 - Open [JD2_WriteInfoCSV.js](https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV/blob/main/JD2_WriteInfoCSV.js) and copy everything to your clipboard
-- With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin
-- Click on the newly installed **Event Scripter** plugin in the settings menu, and then click on the **"+ Add"** button at the bottom of the screen
+- With JDownloader2 installed, go to JDownloader2's Settings menu and install the **Event Scripter** plugin (if it is not already installed.)
+- Click on the newly installed **Event Scripter** plugin in the Settings menu, and then click on the **"+ Add"** button at the bottom of the screen
 - Name the script **"Write download information to a CSV"**
 - Set the Trigger to **"Package finished"**
 - Click on the **Edit** button to the right of the newly named empty script
 - In the window that appears, **paste** the contents of the script and save the file
 - Done!
- 
-## Additional Details 
-- In a normal instance where there's just one file in the package, this will generate a single line CSV with the `filename`, `filesize (in bytes)` and `URL`.
-- In a circumstance where a JD2 package has multiple files, this will give you a multi line CSV where each line will have a `filename`, `filesize (in bytes)` and the respective `URL`.
-- In the event that the URL is undeterminable, the URL field in the CSV will be defined as 'undefinedURL'
 
+**Importing URL metadata into Stash**
+<img src="/readme_assets/Import_JD2_CSV_To_Stash.png" >
+This part imports the URL metadata found in your sidecar metadata files into Stash.
+You'll want to run this whenever you have new sidecar files to add to Stash.
+
+1. Download `Import_JD2_CSV_To_Stash.ps1` to your filesystem
+2. Run `Import_JD2_CSV_To_Stash.ps1` 
+3. Select the folder you'd like to parse sidecar files from
+4. Press `Enter` when prompted to start the import
+5. Done!
