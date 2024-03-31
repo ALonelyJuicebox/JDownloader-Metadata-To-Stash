@@ -15,8 +15,9 @@
 
 
 ## 🍦 How it Works
--  The **JDownloader2 script** auto-triggers when files are downloaded and it saves a sidecar `.csv` file by the downloaded file containing `filename`, `filesize` and `URL` metadata.
--  The **JD2_CSV_To_Stash.ps1** Powershell script iterates through a defined folder and parses sidecar `.csv` files against your Stash.<br /> It'll add missing URLs to scenes that need it.
+The **JDownloader2 script** auto-triggers when files are downloaded and it saves a sidecar `.csv` file by the downloaded file containing `filename`, `filesize` and `URL` metadata.
+
+The **JD2_CSV_To_Stash.ps1** Powershell script iterates through a defined folder and parses sidecar `.csv` files against your Stash.<br /> It'll add missing URLs to scenes that need it.
 
 ## 📖 Adding the JDownloader2 event script
 <img src="/readme_assets/JDownloader.png" width="50%" height="50%" >
