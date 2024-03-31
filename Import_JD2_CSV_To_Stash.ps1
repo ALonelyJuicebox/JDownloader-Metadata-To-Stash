@@ -20,9 +20,9 @@ REQUIREMENTS
 Import-Module PSGraphQL
 
 clear-host
-write-host "- Import JDownloader2 CSV to Stash 0.2 - " -ForegroundColor Cyan
+write-host "Import JDownloader2 CSV to Stash 0.2" -ForegroundColor Cyan
 write-host "https://github.com/ALonelyJuicebox/JDownloader-Metadata-To-Stash"
-write-host "By JuiceBox"
+write-host "By JuiceBox`n-`n"
 
 #Before we do anything, let's see if we can talk to Stash.
 $StashGQL_Query = 'query version{version{version}}'
@@ -37,14 +37,14 @@ catch{
 }
 
 if($IsWindows){
-    read-host "`n-`n`nLet's import your JD2 metadata into your Stash!`nPress [Enter] to select a folder containing .csv files"
+    read-host "Let's import your JD2 metadata into your Stash!`nPress [Enter] to select a folder containing .csv files"
     Add-Type -AssemblyName System.Windows.Forms
     $FileBrowser = New-Object System.Windows.Forms.FolderBrowserDialog
     $null = $FileBrowser.ShowDialog()
     $pathtovideofiles  = $FileBrowser.SelectedPath
 }
 else{
-    $pathtovideofiles = read-host "What folder are your CSV files in?"
+    $pathtovideofiles = read-host "Let's import your JD2 metadata into your Stash!`nWhat folder are your CSV files in?"
 }
 if (!(Test-Path $pathtovideofiles)){
     write-host "Whoops, that folder does not seem to exist."
