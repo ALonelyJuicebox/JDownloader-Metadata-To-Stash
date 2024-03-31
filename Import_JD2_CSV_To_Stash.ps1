@@ -20,16 +20,24 @@ REQUIREMENTS
 Import-Module PSGraphQL
 
 clear-host
-write-host "Import CSV to Stash" -ForegroundColor Cyan
-write-host "By JuiceBox`n-"
-write-host "`nQuick Tips:"
-write-host "    * The filename/filesize must match what's defined in your .csv files."
-write-host "    * Make sure you are using this JDownloader2 script to generate .csv files."
-write-host "      https://github.com/ALonelyJuicebox/JD2_WriteInfoCSV"
+write-host "- Import JDownloader2 CSV to Stash 0.2 - " -ForegroundColor Cyan
+write-host "https://github.com/ALonelyJuicebox/JDownloader-Metadata-To-Stash"
+write-host "By JuiceBox"
 
+#Before we do anything, let's see if we can talk to Stash.
+$StashGQL_Query = 'query version{version{version}}'
+try{
+    $StashGQL_Result = Invoke-GraphQLQuery -Query $StashGQL_Query -Uri $StashGQL_URL -Headers $(if ($StashAPIKey){ @{ApiKey = "$StashAPIKey" }})
+}
+catch{
+    write-host "Hmm...Could not communicate to Stash ($StashGQL_URL)`nAre you sure it's running?"
+    write-host "(If that's not the right path, change line 1 of this Powershell script!)"
+    read-host "Press [Enter] to exit."
+    exit
+}
 
 if($IsWindows){
-    read-host "`n-`nPress [Enter] to select the folder that contains your .csv files"
+    read-host "`n-`n`nLet's import your JD2 metadata into your Stash!`nPress [Enter] to select a folder containing .csv files"
     Add-Type -AssemblyName System.Windows.Forms
     $FileBrowser = New-Object System.Windows.Forms.FolderBrowserDialog
     $null = $FileBrowser.ShowDialog()
@@ -71,6 +79,18 @@ foreach ($currentcsvfile in $allcsvfiles){
         $currentfilepath = $csv_row.filepath 
         $currentfilesize = $csv_row.filesize
         $currenturlfromcsv = $csv_row.url
+
+        #If the CSV we're looking at isn't a valid CSV for importing metadata into Stash, let's skip it and more on.
+        if($currentfilesize -ne [int]){
+            write-host "INFO: The following CSV file does not appear to be a valid JD2 metadata file and has been skipped:" -ForegroundColor Yellow
+            write-host $currentcsvfile.FullName -ForegroundColor Yellow
+            break
+        }
+        #If the CSV doesn't have any URL information to add, let's just skip it
+        if(($currenturlfromcsv -eq "undefinedURL") -or ($null -eq $currenturlfromcsv)){
+            continue
+        }
+
 
         $StashGQL_Query = 'mutation {
             querySQL(sql: "SELECT files.basename, files.size, files.id AS files_id, scenes.id AS scenes_id FROM files JOIN scenes_files ON files.id = scenes_files.file_id JOIN scenes ON scenes.id = scenes_files.scene_id WHERE files.basename ='''+$currentfilepath+''' AND size = '''+$currentfilesize+'''") {
