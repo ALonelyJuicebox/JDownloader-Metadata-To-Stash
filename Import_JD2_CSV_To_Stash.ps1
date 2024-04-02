@@ -170,7 +170,7 @@ foreach ($currentcsvfile in $allcsvfiles){
         
         #Otherwise if there is no match we just iterate a counter, log it to the missing files and keep it pushing.
         else{
-            Add-Content -Path .\FilesMissingFromStash.txt -value $currentcsvfile.FullName
+            Add-Content -Path .\FilesMissingFromStash.txt -value $currenturlfromcsv
             $missingcounter++
         }
     }
